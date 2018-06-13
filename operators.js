@@ -63,54 +63,26 @@ module.exports = function(suite) {
   suite.add(`${utils.f(n3)} += ${utils.f(n4)}`, function() { temp += n4 });
   temp = s1;
   suite.add(`${utils.f(s1)} += ${utils.f(s2)}`, function() { temp += s2 });
-  temp = s3;
-  suite.add(`${utils.f(s3)} += ${utils.f(s4)}`, function() { temp += s4 });
-  temp = n3;
-  suite.add(`${utils.f(n3)} += ${utils.f(s3)}`, function() { temp += s3 });
 
   temp = n1;
   suite.add(`${utils.f(n1)} -= ${utils.f(n2)}`, function() { temp -= n2 });
   temp = n3;
   suite.add(`${utils.f(n3)} -= ${utils.f(n4)}`, function() { temp -= n4 });
-  temp = s1;
-  suite.add(`${utils.f(s1)} -= ${utils.f(s2)}`, function() { temp -= s2 });
-  temp = s3;
-  suite.add(`${utils.f(s3)} -= ${utils.f(s4)}`, function() { temp -= s4 });
-  temp = n3;
-  suite.add(`${utils.f(n3)} -= ${utils.f(s3)}`, function() { temp -= s3 });
 
   temp = n1;
   suite.add(`${utils.f(n1)} *= ${utils.f(n2)}`, function() { temp *= n2 });
   temp = n3;
   suite.add(`${utils.f(n3)} *= ${utils.f(n4)}`, function() { temp *= n4 });
-  temp = s1;
-  suite.add(`${utils.f(s1)} *= ${utils.f(s2)}`, function() { temp *= s2 });
-  temp = s3;
-  suite.add(`${utils.f(s3)} *= ${utils.f(s4)}`, function() { temp *= s4 });
-  temp = n3;
-  suite.add(`${utils.f(n3)} *= ${utils.f(s3)}`, function() { temp *= s3 });
 
   temp = n1;
   suite.add(`${utils.f(n1)} /= ${utils.f(n2)}`, function() { temp /= n2 });
   temp = n3;
   suite.add(`${utils.f(n3)} /= ${utils.f(n4)}`, function() { temp /= n4 });
-  temp = s1;
-  suite.add(`${utils.f(s1)} /= ${utils.f(s2)}`, function() { temp /= s2 });
-  temp = s3;
-  suite.add(`${utils.f(s3)} /= ${utils.f(s4)}`, function() { temp /= s4 });
-  temp = n3;
-  suite.add(`${utils.f(n3)} /= ${utils.f(s3)}`, function() { temp /= s3 });
 
   temp = n1;
   suite.add(`${utils.f(n1)} %= ${utils.f(n2)}`, function() { temp %= n2 });
   temp = n3;
   suite.add(`${utils.f(n3)} %= ${utils.f(n4)}`, function() { temp %= n4 });
-  temp = s1;
-  suite.add(`${utils.f(s1)} %= ${utils.f(s2)}`, function() { temp %= s2 });
-  temp = s3;
-  suite.add(`${utils.f(s3)} %= ${utils.f(s4)}`, function() { temp %= s4 });
-  temp = n3;
-  suite.add(`${utils.f(n3)} %= ${utils.f(s3)}`, function() { temp %= s3 });
   
   suite.add('[object](1) .', function() { o1._0; });
   suite.add('[object](1) []', function() { o1['_0']; });
