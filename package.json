@@ -6,6 +6,6 @@
   },
   "dependencies": {
     "benchmark": "^2.1.4",
-    "travis-benchmark": "^0.0.5"
+    "travis-benchmark": "^0.0.6"
   }
 }
