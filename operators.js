@@ -20,7 +20,7 @@ module.exports = function(suite) {
   var assignment = ['+=','-=','*=','/=','%='];
   
   var arithmeticSuite = function(a, b, arithmetic) {
-    suite.add(`${a} ${arithmetic} ${b}`, new Function(`a ${arithmetic} b`));
+    eval(`suite.add('${utils.f(a)} ${arithmetic} ${utils.f(b)}', function() { a ${arithmetic} b });`);
   };
   for (var a in arithmetic) {
     arithmeticSuite(n1, n1, arithmetic[a]);
@@ -31,11 +31,11 @@ module.exports = function(suite) {
   
   var prefixSuite = function(a, ment) {
     var temp = a;
-    suite.add(`${ment}${a}`, new Function(`${ment}temp`));
+    eval(`suite.add('${ment}${a}', function() { ${ment}temp });`);
   };
   var postfixSuite = function(a, ment) {
     var temp = a;
-    suite.add(`${a}${ment}`, new Function(`temp${ment}`));
+    eval(`suite.add('${a}${ment}', function() { temp${ment} });`);
   };
   for (var a in ment) {
     prefixSuite(n1, ment[a]);
@@ -45,7 +45,7 @@ module.exports = function(suite) {
   }
   
   var comparasionSuite = function(a, b, comparasion) {
-    suite.add(`${utils.f(a)} ${comparasion} ${utils.f(b)}`, new Function(`a ${comparasion} b`));
+    eval(`suite.add('${utils.f(a)} ${comparasion} ${utils.f(b)}', function() { a ${comparasion} b });`);
   };
   for (var a in comparasion) {
     comparasionSuite(n1, n2, comparasion[a]);
@@ -57,7 +57,7 @@ module.exports = function(suite) {
   
   var assignmentSuite = function(a, b, assignment) {
     var temp = a;
-    suite.add(`${utils.f(a)} ${assignment} ${utils.f(b)}`, new Function(`temp ${assignment} b`));
+    eval(`suite.add('${utils.f(a)} ${assignment} ${utils.f(b)}', function() { temp ${assignment} b });`);
   };
   for (var a in assignment) {
     assignmentSuite(n1, n2, assignment[a]);
