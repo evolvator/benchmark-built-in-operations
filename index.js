@@ -1,8 +1,5 @@
 var Benchmark = require('benchmark');
 var tb = require('travis-benchmark');
-var beauty = require('beautify-benchmark');
-var _ = require('lodash');
-var async = require('async');
 
 var utils = require('./utils.js');
 
@@ -33,16 +30,5 @@ suite.add('typeof [object]', function() { typeof o2; });
 suite.add('typeof [array]', function() { typeof a2; });
 suite.add('typeof [function]', function() { typeof f; });
 
-suite.on('error', function(error) {
-  console.log(error);
-});
-suite.on('cycle', function (event) { beauty.add(event.target); });
-suite.on('complete', function(event) {
-  beauty.log();
-  tb.saveSuite(
-    tb.parseSuite(event),
-    function(error) {}
-  );
-});
-
+tb.wrapSuite(suite);
 suite.run({ async: true });
