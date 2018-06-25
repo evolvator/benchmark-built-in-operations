@@ -22,6 +22,30 @@ var suite = new Benchmark.Suite(`built-in`);
 require('./new.js')(suite);
 require('./operators.js')(suite);
 
+suite.add('if (true) { null; } else { null; }', function() {
+  if (true) {
+    null;
+  } else {
+    null;
+  }
+});
+
+suite.add('if (false) { null; } else { null; }', function() {
+  if (false) {
+    null;
+  } else {
+    null;
+  }
+});
+
+suite.add('true ? null : null', function() {
+  true ? null : null
+});
+
+suite.add('false ? null : null', function() {
+  false ? null : null
+});
+
 suite.add('typeof [undefined]', function() { typeof undefined; });
 suite.add('typeof [null]', function() { typeof null; });
 suite.add('typeof [number]', function() { typeof n3; });
