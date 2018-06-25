@@ -46,6 +46,10 @@ suite.add('false ? null : null', function() {
   false ? null : null
 });
 
+suite.add('eval("")', function() {
+  eval('');
+});
+
 suite.add('typeof [undefined]', function() { typeof undefined; });
 suite.add('typeof [null]', function() { typeof null; });
 suite.add('typeof [number]', function() { typeof n3; });

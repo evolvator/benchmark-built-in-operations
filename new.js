@@ -7,6 +7,12 @@ module.exports = function(suite) {
   suite.add('[null]', function() {
     temp = null;
   });
+  suite.add('[symbol] Symbol()', function() {
+    temp = Symbol();
+  });
+  suite.add('[map] new Map()', function() {
+    temp = new Map();
+  });
   suite.add('[function] () {}', function() {
     temp = function() {};
   });
