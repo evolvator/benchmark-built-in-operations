@@ -98,4 +98,22 @@ module.exports = function(suite) {
   suite.add('! not [string]', function() { !s3 });
   suite.add('! not [object]', function() { !o2 });
   suite.add('! not [array]', function() { !a2 });
+  
+  (function() {
+    var x = {};
+    suite.add({
+      name: 'a.b = null',
+      onCycle: function() { x.y = 123; },
+      fn: function() { a.b = null; }
+    });
+  })();
+  
+  (function() {
+    var x = {};
+    suite.add({
+      name: 'delete a.b',
+      onCycle: function() { x.y = 123; },
+      fn: function() { delete a.b; }
+    });
+  })();
 };
