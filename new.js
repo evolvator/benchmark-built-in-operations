@@ -19,6 +19,13 @@ module.exports = function(suite) {
   suite.add('[function] ()', function() {
     temp();
   });
+  suite.add('[function] class', function() {
+    temp = class {};
+  });
+  class Parent {};
+  suite.add('[function] class extends', function() {
+    temp = class extends Parent {};
+  });
   suite.add('[number] 1', function() {
     temp = 1;
   });
@@ -36,6 +43,10 @@ module.exports = function(suite) {
   });
   suite.add('[array] new Array()', function() {
     temp = new Array();
+  });
+  function Child() {};
+  suite.add('[object] new Child()', function() {
+    temp = new Child();
   });
   suite.add('[object] {}', function() {
     temp = {};
