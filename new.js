@@ -44,12 +44,21 @@ module.exports = function(suite) {
   suite.add('[array] new Array()', function() {
     temp = new Array();
   });
-  function Child() {};
+  function Child1() {};
   suite.add('[object] new Child()', function() {
-    temp = new Child();
+    temp = new Child1();
+  });
+  function Child2() {
+    this.key = 'value';
+  };
+  suite.add('[object] new Child() with value', function() {
+    temp = new Child2();
   });
   suite.add('[object] {}', function() {
     temp = {};
+  });
+  suite.add('[object] {} with key', function() {
+    temp = { key: 'value' };
   });
   suite.add('[object] new Object()', function() {
     temp = new Object();
