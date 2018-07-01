@@ -116,11 +116,18 @@ module.exports = function(suite) {
     temp %= n4;
   });
 
-  suite.add('map (1) get 0', function() {
+  suite.add('map (1) get 0', function () {
     m1.get(0);
   });
-  suite.add('map (1024) get 0', function() {
+  suite.add('map (1024) get 0', function () {
     m2.get(0);
+  });
+
+  suite.add('map (1) set 1', function () {
+    m1.set(1, 1);
+  });
+  suite.add('map (1024) set "test"', function () {
+    m2.set(512, "test");
   });
 
   suite.add('object (1) get ._0', function() {
