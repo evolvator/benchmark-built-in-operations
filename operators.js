@@ -24,8 +24,8 @@ module.exports = function(suite) {
   var arithmeticSuite = function(a, b, arithmetic) {
     eval(
       `suite.add('${utils.f(a)} ${arithmetic} ${utils.f(
-        b,
-      )}', function() { a ${arithmetic} b });`,
+        b
+      )}', function() { a ${arithmetic} b });`
     );
   };
   for (var a in arithmetic) {
@@ -53,8 +53,8 @@ module.exports = function(suite) {
   var comparasionSuite = function(a, b, comparasion) {
     eval(
       `suite.add('${utils.f(a)} ${comparasion} ${utils.f(
-        b,
-      )}', function() { a ${comparasion} b });`,
+        b
+      )}', function() { a ${comparasion} b });`
     );
   };
   for (var a in comparasion) {
@@ -116,18 +116,18 @@ module.exports = function(suite) {
     temp %= n4;
   });
 
-  suite.add('map (1) get 0', function () {
+  suite.add('map (1) get 0', function() {
     m1.get(0);
   });
-  suite.add('map (1024) get 0', function () {
+  suite.add('map (1024) get 0', function() {
     m2.get(0);
   });
 
-  suite.add('map (1) set 1', function () {
+  suite.add('map (1) set 1', function() {
     m1.set(1, 1);
   });
-  suite.add('map (1024) set "test"', function () {
-    m2.set(512, "test");
+  suite.add('map (1024) set "test"', function() {
+    m2.set(512, 'test');
   });
 
   suite.add('object (1) get ._0', function() {
@@ -176,7 +176,7 @@ module.exports = function(suite) {
       },
       fn: function() {
         a.b = null;
-      },
+      }
     });
   })();
 
@@ -189,7 +189,7 @@ module.exports = function(suite) {
       },
       fn: function() {
         delete a.b;
-      },
+      }
     });
   })();
 };
