@@ -5,7 +5,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "benchmark": "^2.1.4",
-    "travis-benchmark": "^0.0.6"
+    "benchmark": "2.1.4",
+    "travis-benchmark": "0.0.8"
   }
 }
