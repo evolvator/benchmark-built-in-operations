@@ -137,18 +137,25 @@ module.exports = function(suite) {
     o1['_0'];
   });
 
-  suite.add('object (1024) ._543', function() {
+  suite.add('object (1024) get ._543', function() {
     o2._543;
   });
-  suite.add('object (1024) ["_543"]', function() {
+  suite.add('object (1024) get ["_543"]', function() {
     o2['_543'];
   });
 
-  suite.add('array (1) [0]', function() {
+  suite.add('array (1) get [0]', function() {
     a1[0];
   });
-  suite.add('array (1024) [543]', function() {
+  suite.add('array (1024) get [543]', function() {
     a2[543];
+  });
+
+  suite.add('array (1) get [0]', function() {
+    a1[0] = 'test';
+  });
+  suite.add('array (1024) get [543]', function() {
+    a2[543] = 'test';
   });
 
   suite.add('!true', function() {
