@@ -158,6 +158,27 @@ module.exports = function(suite) {
     a2[543] = 'test';
   });
 
+  suite.add('array (1) set [length - 1]', function() {
+    a1[a1.length - 1] = "test";
+  });
+  suite.add('array (1024) set [length - 1]', function() {
+    a2[a2.length - 1] = "test";
+  });
+
+  suite.add('array (1) push', function() {
+    a1.push("test");
+  });
+  suite.add('array (1024) push', function() {
+    a2.push("test");
+  });
+  
+  suite.add('array (1) set [length - 1]', function() {
+    a1[0] = 'test';
+  });
+  suite.add('array (1024) set [length - 1]', function() {
+    a1[0] = 'test';
+  });
+
   suite.add('!true', function() {
     !true;
   });
