@@ -16,13 +16,25 @@ module.exports = function(suite) {
   suite.add('create function () {}', function() {
     temp = function() {};
   });
-  suite.add('function (1,2,3)', function() {
+  suite.add('(function() {}) (1,2,3)', function() {
     temp(1, 2, 3);
   });
-  suite.add('function .call(this, 1,2,3)', function() {
+  suite.add('(function() {}) .call(this, 1,2,3)', function() {
     temp.call(this, 1, 2, 3);
   });
-  suite.add('function .apply(this, [1,2,3])', function() {
+  suite.add('(function() {}) .apply(this, [1,2,3])', function() {
+    temp.apply(this, [1, 2, 3]);
+  });
+  suite.add('create () => {}', function() {
+    temp = () => {};
+  });
+  suite.add('(() => {}) (1,2,3)', function() {
+    temp(1, 2, 3);
+  });
+  suite.add('(() => {}) .call(this, 1,2,3)', function() {
+    temp.call(this, 1, 2, 3);
+  });
+  suite.add('(() => {}) .apply(this, [1,2,3])', function() {
     temp.apply(this, [1, 2, 3]);
   });
   suite.add('create class', function() {
