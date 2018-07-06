@@ -137,6 +137,40 @@ module.exports = function(suite) {
     o1['_0'];
   });
 
+  temp = {
+    _a: 123,
+    get a() { return this._a; }
+  };
+  suite.add({
+    name: 'object (1) getter',
+    onCycle: function() {
+      temp = {
+        _a: 123,
+        get a() { return this._a; }
+      };
+    },
+    fn: function() {
+      temp.a;
+    }
+  });
+
+  temp = {
+    _a: 123,
+    set a(value) { this._a = value; }
+  };
+  suite.add({
+    name: 'object (1) setter',
+    onCycle: function() {
+      temp = {
+        _a: 123,
+        set a(value) { this._a = value; }
+      };
+    },
+    fn: function() {
+      temp.a = 234;
+    }
+  });
+
   suite.add('object (1024) get ._543', function() {
     o2._543;
   });
