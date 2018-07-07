@@ -1,4 +1,5 @@
 var utils = require('./utils.js');
+var _ = require('lodash');
 
 var n1 = utils.n1;
 var n2 = utils.n2;
@@ -198,19 +199,34 @@ module.exports = function(suite) {
   suite.add('array (1024) set [length - 1]', function() {
     a2[a2.length - 1] = "test";
   });
-
-  suite.add('array (1) push', function() {
-    a1.push("test");
-  });
-  suite.add('array (1024) push', function() {
-    a2.push("test");
+  
+  var _a1 = _.clone(a1);
+  suite.add({
+    name: 'array (1) push',
+    onCycle: function() {
+      _a1 = _.clone(a1);
+    },
+    fn: function() {
+      a1.push("test");
+    }
   });
   
-  suite.add('array (1) set [length - 1]', function() {
+  var _a2 = _.clone(a2);
+  suite.add({
+    name: 'array (1024) push',
+    onCycle: function() {
+      _a2 = _.clone(a2);
+    },
+    fn: function() {
+      a2.push("test");
+    }
+  });
+  
+  suite.add('array (1) set [0]', function() {
     a1[0] = 'test';
   });
-  suite.add('array (1024) set [length - 1]', function() {
-    a1[0] = 'test';
+  suite.add('array (1024) set [512]', function() {
+    a2[512] = 'test';
   });
 
   suite.add('!true', function() {
