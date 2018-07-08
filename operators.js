@@ -116,6 +116,15 @@ module.exports = function(suite) {
   suite.add(`${utils.f(n3)} %= ${utils.f(n4)}`, function() {
     temp %= n4;
   });
+  
+  var _i = 1;
+  suite.add('i=i+1', function() {
+    _i=_i+1;
+  });
+  var _i = 1;
+  suite.add('i=i-1', function() {
+    _i=_i-1;
+  });
 
   suite.add('map (1) get 0', function() {
     m1.get(0);
