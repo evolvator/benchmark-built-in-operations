@@ -2,6 +2,8 @@
 
 What is the difference in speed for basic operations on data types?
 
+## [DEPRICATED](https://github.com/orgs/evolvator/projects?utf8=%E2%9C%93&query=is%3Aclosed+Tasks+v0)
+
 [![Build Status](https://travis-ci.org/evolvator/benchmark-built-in-operations.svg?branch=code)](https://travis-ci.org/evolvator/benchmark-built-in-operations)
 
 [Executable code](https://github.com/evolvator/benchmark-built-in-operations/tree/code)
