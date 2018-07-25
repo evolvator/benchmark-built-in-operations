@@ -1,5 +1,5 @@
 module.exports = function(suite) {
-  var temp;
+  var temp, o = {};
 
   suite.add('create undefined', function() {
     temp = undefined;
@@ -13,29 +13,37 @@ module.exports = function(suite) {
   suite.add('new Map()', function() {
     temp = new Map();
   });
-  suite.add('create function () {}', function() {
+  suite.add('classic [function] function () {}', function() {
     temp = function() {};
   });
-  suite.add('(function() {}) (1,2,3)', function() {
+  o.temp = temp;
+  suite.add('classic [function] (1,2,3)', function() {
     temp(1, 2, 3);
   });
-  suite.add('(function() {}) .call(this, 1,2,3)', function() {
+  suite.add('classic [function].call(this, 1,2,3)', function() {
     temp.call(this, 1, 2, 3);
   });
-  suite.add('(function() {}) .apply(this, [1,2,3])', function() {
+  suite.add('classic [function].apply(this, [1,2,3])', function() {
     temp.apply(this, [1, 2, 3]);
   });
-  suite.add('create () => {}', function() {
+  suite.add('classic [object].[function](1,2,3)', function() {
+    o.temp(1, 2, 3);
+  });
+  suite.add('arrow [function] () => {}', function() {
     temp = () => {};
   });
-  suite.add('(() => {}) (1,2,3)', function() {
+  o.temp = temp;
+  suite.add('arrow [function] (1,2,3)', function() {
     temp(1, 2, 3);
   });
-  suite.add('(() => {}) .call(this, 1,2,3)', function() {
+  suite.add('arrow [function].call(this, 1,2,3)', function() {
     temp.call(this, 1, 2, 3);
   });
-  suite.add('(() => {}) .apply(this, [1,2,3])', function() {
+  suite.add('arrow [function].apply(this, [1,2,3])', function() {
     temp.apply(this, [1, 2, 3]);
+  });
+  suite.add('arrow [object].[function](1,2,3)', function() {
+    o.temp(1, 2, 3);
   });
   suite.add('create class', function() {
     temp = class {};
