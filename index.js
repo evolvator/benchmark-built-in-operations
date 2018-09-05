@@ -46,6 +46,32 @@ suite.add('false ? null : null', function() {
   false ? null : null
 });
 
+(function() {
+  var A = function() {};
+  var a = new A();
+  var B = function() {};
+  B.prototype = a;
+  var b = new B();
+  var C = function() {};
+  C.prototype = b;
+  var c = new C();
+  var D = function() {};
+  D.prototype = c;
+  var d = new D();
+  suite.add('d instanceof A', function() {
+    d instanceof A;
+  });
+  suite.add('c instanceof A', function() {
+    c instanceof A;
+  });
+  suite.add('b instanceof A', function() {
+    b instanceof A;
+  });
+  suite.add('a instanceof A', function() {
+    a instanceof A;
+  });
+})();
+
 suite.add('eval("")', function() {
   eval('');
 });
